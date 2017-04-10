@@ -65,25 +65,24 @@ public class PilhaArray implements Pilha {
     public void print(){
         System.out.println("---PRINT---");
         for(int i = 0; i<S.length;i++)
-                System.out.println("S["+i+"] = "+S[i]);                
+            System.out.println("S["+i+"] = "+S[i]);                
     }
     
     public void aumentar(){
+        int n;
+        Object aux[];
         if(op <= 0){
-                Object aux[] = new Object[size()*2];
-                aux = S.clone();                
-                S = new Object[size()*2];
-                for(int i = 0; i<aux.length;i++)
-                    S[i] = aux[i];
+                n = size()*2;
                 System.out.println("Pilha duplicada.");
             }
             else{
-                Object aux[] = new Object[size()+op];
-                aux = S.clone();
-                S = new Object[size()+op];
-                for(int i = 0; i<aux.length;i++)
-                    S[i] = aux[i];
+                n = size()+op;
                 System.out.println("Pilha aumentada em " + op);               
-            }   
+            }  
+        aux = new Object[n];
+        aux = S.clone();
+        S = new Object[n];         
+            for(int i = 0; i<aux.length;i++)
+                S[i] = aux[i];
     }
 }

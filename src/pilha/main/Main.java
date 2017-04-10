@@ -19,9 +19,22 @@ public class Main {
         s.push('c');
         System.out.println("Tamanho = " + s.size());
         
+        /*
         // ADICONANDO + 1 ITEM COM PILHA CHEIA
         try{
             s.push('d');
+            System.out.println("Top = " + s.top());
+        
+        }catch(EPilhaVazia e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+           s.print();
+        }*/
+        
+        // ADICONANDO + 1 ITEM COM PILHA CHEIA
+        try{
+            s.pop();
             System.out.println("Top = " + s.top());
         
         }catch(EPilhaVazia e){
