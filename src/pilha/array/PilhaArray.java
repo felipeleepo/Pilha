@@ -46,9 +46,10 @@ public class PilhaArray implements Pilha {
         if((t+1) < S.length)
             S[++t] = o;
         else{
-            System.out.println("Pilha cheia. Valor não inserido.");
-            aumentar();      
+            //System.out.println("Pilha cheia.");
+            aumentar(o);      
         }
+        //print();
     }
     
     public Object pop() throws EPilhaVazia{
@@ -64,25 +65,32 @@ public class PilhaArray implements Pilha {
     
     public void print(){
         System.out.println("---PRINT---");
-        for(int i = 0; i<S.length;i++)
+        for(int i = 0; i<size();i++)
             System.out.println("S["+i+"] = "+S[i]);                
     }
     
-    public void aumentar(){
+    public void aumentar(Object o){
         int n;
         Object aux[];
         if(op <= 0){
                 n = size()*2;
-                System.out.println("Pilha duplicada.");
+               // System.out.println("Pilha duplicada.");
             }
             else{
                 n = size()+op;
-                System.out.println("Pilha aumentada em " + op);               
+                //System.out.println("Pilha aumentada em " + op);               
             }  
         aux = new Object[n];
         aux = S.clone();
         S = new Object[n];         
             for(int i = 0; i<aux.length;i++)
                 S[i] = aux[i];
+        S[size()] = o;
+        t++;
+    }
+    
+    public void empty(){
+        t = -1;
+        S = null;
     }
 }
